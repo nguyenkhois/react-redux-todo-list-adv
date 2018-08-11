@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { TodoList, DoneList } from './lists.component';
-import { actions } from './actions';
+import { actions } from '../actions/actions';
 
 /**
- * STEP 4A - Mapping all actions (Redux dispatchs) to React props
- * <React props>: <Redux action>
+ * STEP 3A - Creating React component props from actions by using a mapping function
+ * <reactProps>: you name it whatever name you want
+ * <reduxAction>: you have created them on step 2
+ * const mapDispatchToProps = {
+ *      <reactProps>: <reduxAction>
+ * };
  */
 const mapDispatchToProps = {
     addTask: actions.addTask,
@@ -17,30 +21,37 @@ const mapDispatchToProps = {
 };
 
 /**
- * STEP 4B - Mapping Redux state to React props
- * Redux state is @state that is default name
- * React prop is @todos that you name it
- * <React props>: <Redux state>
+ * STEP 3B - Creating React component props that used like component state
+ *           from Redux state by using a mapping function
+ * @state is Redux state (default)
+ * @todos is React component props that you name it by yourself
+ * const mapStateToProps = (state) => {
+ *      return {
+ *          <reactProps>: <reduxState>
+ *      };
+ * };
  */
 const mapStateToProps = (state) => {
     return {
-        todos: state
+        todos: state.todos
     };
 };
 
 /**
- * STEP 4C - Creating React class component
+ * STEP 3C - Creating React class component with its props that were created on above steps
  */
 class TodoApp extends Component {
     handleEnterKey = (e) => {
         const userInput = e.target.value.trim(); // Get data from text input
         if (e.keyCode === 13 && userInput.length > 0) {
             const newItem = {
-                id: Date.now(), 
-                description: userInput, 
+                id: Date.now(),
+                description: userInput,
                 isDone: false
             };
-            this.props.addTask(newItem); // Using actions (Redux dispatch) that have created on step 3 and mapped on step 4A
+
+            // Dispatch Redux actions that have created on step 2 and mapped on step 3A
+            this.props.addTask(newItem);
 
             e.target.value = ''; // Clear text input
         }
@@ -63,30 +74,30 @@ class TodoApp extends Component {
         this.props.removeCompleted();
     }
 
-    render(){
+    render() {
         // this.props.todos is component state that has mapped on step 4B
         let todoTasks = this.props.todos.filter((item) => !item.isDone);
         let doneTasks = this.props.todos.filter((item) => item.isDone);
 
-        return(
+        return (
             <div>
                 {/* Using for testing purpose - Main state */}
-                { console.log('this.props.todos', this.props.todos) }
+                {console.log('this.props.todos', this.props.todos)}
 
                 <p>To-Do list</p>
-                <input onKeyDown={(e)=>this.handleEnterKey(e)}
-                    type="text" minLength="1" maxLength="50" placeholder="Enter your task"/>
+                <input onKeyDown={(e) => this.handleEnterKey(e)}
+                    type="text" minLength="1" maxLength="50" placeholder="Enter your task" />
 
-                <TodoList items={todoTasks} 
-                    fnCheck={(itemId, e)=>this.handleCheck(itemId, e)} 
-                    fnRemove={(itemId, e)=>this.handleRemove(itemId, e)}/>
+                <TodoList items={todoTasks}
+                    fnCheck={(itemId, e) => this.handleCheck(itemId, e)}
+                    fnRemove={(itemId, e) => this.handleRemove(itemId, e)} />
 
-                <DoneList items={doneTasks} 
-                    fnCheck={(itemId, e)=>this.handleCheck(itemId, e)} 
-                    fnRemove={(itemId, e)=>this.handleRemove(itemId, e)} 
-                    fnClearCompleted={(e)=>this.handleClearCompleted(e)}/>
+                <DoneList items={doneTasks}
+                    fnCheck={(itemId, e) => this.handleCheck(itemId, e)}
+                    fnRemove={(itemId, e) => this.handleRemove(itemId, e)}
+                    fnClearCompleted={(e) => this.handleClearCompleted(e)} />
             </div>
-        );        
+        );
     }
 };
 
@@ -95,7 +106,6 @@ TodoApp.propTypes = {
 }
 
 /**
- * STEP 5 - Creating connection to React class component
- * Creating connection between Redux state and dispatchs with React class component
+ * STEP 4 - Creating a container component by using Redux connect() function
  */
 export const TodoX = connect(mapStateToProps, mapDispatchToProps)(TodoApp);

@@ -42,3 +42,4 @@ button:hover{background-color: #555555;color: white;}
 #root > div > div > p:first-child {font-size: 1.1em;font-weight: bold;}
 #root > div > div > ul > li span {text-decoration: line-through;}
 #root > div > div > button {padding: 0.5em; border-radius: 20px;}
+#root > div > div > a {font-size: 10px; text-decoration: none; color: #555555;}

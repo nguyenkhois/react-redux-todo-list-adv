@@ -7,15 +7,26 @@
 export let userReducer = (state, action) => {
     switch (action.type){
         case 'ADD_TASK':
-            return state.concat(action.task);
+            return ({...state, 
+                todos: state.todos.concat(action.task)
+            });
         case 'REMOVE_TASK':
-            return state.filter((item) => item.id !== action.task.id);
+            return ({...state,
+                todos: state.todos.filter((item) => item.id !== action.task.id),
+                deleted: state.deleted.concat(action.task)
+            });
         case 'CHECKED':
-            const itemIndex = state.findIndex((item) => item.id === action.task.id);
-            const newState = state.map((item, index) => index === itemIndex ? {...item, isDone: !item.isDone} : item);
-            return newState;
+            const itemIndex = state.todos.findIndex((item) => item.id === action.task.id);
+            const newTodos = state.todos.map((item, index) => index === itemIndex ? {...item, isDone: !item.isDone} : item);
+            return ({...state, 
+                todos: newTodos
+            });
         case 'REMOVE_COMPLETED':
-            return state.filter((item) => !item.isDone);
+            const completedTasks = state.todos.filter((item) => item.isDone);
+            return ({...state, 
+                todos: state.todos.filter((item) => !item.isDone),
+                deleted: state.deleted.concat(completedTasks)
+            });
         default:
             return state;
     }

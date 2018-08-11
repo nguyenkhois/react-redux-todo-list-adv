@@ -4,13 +4,16 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import './styles.css';
-import { userReducer } from './reducer';
+import { userReducer } from './reducers/reducer';
 import { App } from './app';
 
 /**
  * STEP 0 - STRUCTURES
  * 1/ The main STATE object that is an object array
- * let state = [{task1}, {task2}, {task3}, {taskn}];
+ * let state = {
+ *      todos: [{task1}, {task2}, {task3}, {taskn}],
+ *      deleted: [{task4}, {taskm}]
+ * };
  * 
  * 2/ The ACTION object must has @type property
  * let action = {
@@ -28,13 +31,17 @@ import { App } from './app';
 
 
 /**
- * STEP 2 - Creating store
+ * STEP 5 - Creating store
  * View more about createStore() here:
  * https://redux.js.org/api/createstore
  * Tip! View again step 0 to know about @state structure
  */
-const preloadedState = []; // Initial main state value (Redux state)
-// const store = createStore(userReducer, preloadedState);
+
+ // Initial main state value (Redux state)
+const preloadedState = {
+    todos: [],
+    deleted: []
+}; 
 
 // Using for testing with Chrome extension
 const store = createStore(userReducer, 
