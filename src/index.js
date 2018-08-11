@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import './styles.css';
-import { userReducer } from './reducers/reducer';
+import { todosReducer } from './reducers/todos.reducer';
 import { App } from './app';
 
 /**
@@ -37,14 +37,14 @@ import { App } from './app';
  * Tip! View again step 0 to know about @state structure
  */
 
- // Initial main state value (Redux state)
+ // Initial state (Redux state)
 const preloadedState = {
     todos: [],
     deleted: []
 }; 
 
-// Using for testing with Chrome extension
-const store = createStore(userReducer, 
+// Creating store
+const store = createStore(todosReducer, 
                             preloadedState,
                             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { TodoList, DoneList } from './lists.component';
-import { actions } from '../actions/actions';
+import { actions } from '../actions/todos.action';
 
 /**
  * STEP 3A - Creating React component props from actions by using a mapping function
@@ -33,7 +33,7 @@ const mapDispatchToProps = {
  */
 const mapStateToProps = (state) => {
     return {
-        todos: state.todos
+        todos: state.todos || []
     };
 };
 
