@@ -9,8 +9,8 @@ You should view step by step when you want to know more about React-Redux in thi
 * Step 2 (`/src/actions/todos.action.js`): Creating actions
    * `/src/actions/extra.action.js` is extra action that used for `deleted-tasks.component`
 * Step 3 (`/src/components/todos.components.js`)
-   * Step 3a: Creating React props by using mapDispatchToProps(). React component will dispatch these actions to change Redux state data
-   * Step 3b: Creating React props by using mapStateToProps(). React component will use Redux state data
+   * Step 3a: Creating React props by using mapDispatchToProps(). React component will dispatch these actions to change Redux state data by props
+   * Step 3b: Creating React props by using mapStateToProps(). React component will use Redux state data by props
    * Step 3c: Creating React class component with its props that were created on above steps. View more:
       * `/src/components/lists.component.js` are children components
       * `/src/components/deleted-tasks.component.js` is extra component. It will show you how Redux state works with two components that have the same level. These components are not in relation parent-child.
