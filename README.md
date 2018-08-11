@@ -4,19 +4,19 @@
 
 ## How you view
 You should view step by step when you want to know more about React-Redux in this example:
-* Step 0 (`/src/index.js`): Data structures
-* Step 1 (`/src/reducers/reducer.js`): Creating reducer
-* Step 2 (`/src/actions/todos.action.js`): Creating actions
-   * `/src/actions/extra.action.js` is extra action that used for `deleted-tasks.component`
-* Step 3 (`/src/components/todos.components.js`)
-   * Step 3a: Creating React props by using mapDispatchToProps(). React component will dispatch these actions to change Redux state data by props
-   * Step 3b: Creating React props by using mapStateToProps(). React component will use Redux state data by props
+* Step 0 (`/src/index.js`): Data structures.
+* Step 1 (`/src/reducers/reducer.js`): Creating reducer.
+* Step 2 (`/src/actions/todos.action.js`): Creating actions.
+   * `/src/actions/extra.action.js` is extra action that used for `deleted-tasks.component`.
+* Step 3 (`/src/components/todos.components.js`).
+   * Step 3a: Creating React props by using mapDispatchToProps(). React component will dispatch these actions to change Redux state data by props.
+   * Step 3b: Creating React props by using mapStateToProps(). React component will use Redux state data by props.
    * Step 3c: Creating React class component with its props that were created on above steps. View more:
-      * `/src/components/lists.component.js` are children components
+      * `/src/components/lists.component.js` are children components.
       * `/src/components/deleted-tasks.component.js` is extra component. It will show you how Redux state works with two components that have the same level. These components are not in relation parent-child.
-* Step 4 (`/src/components/todos.components.js`): Creating a container component by using connect()
-* Step 5 (`/src/index.js`): Creating a store
-* Step 6 (`/src/index.js`): Rendering whole the app by Provider
+* Step 4 (`/src/components/todos.components.js`): Creating a container component by using connect().
+* Step 5 (`/src/index.js`): Creating a store.
+* Step 6 (`/src/index.js`): Rendering whole the app by Provider.
 
 You can view more about Redux:
 * [Core concepts](https://redux.js.org/introduction/coreconcepts)
@@ -38,11 +38,11 @@ Build environment is compatible with:
 * Debian
 
 ## Installation
-* Run `npm install` to install all needed packages
+* Run `npm install` to install all needed packages.
 
 ## Using
-* Run `npm start` or `npm run start` to start your local web server at `localhost:9000`
-* Run `npm run build` to build your files from `/src` to `/dist` directory
+* Run `npm start` or `npm run start` to start your local web server at `localhost:9000`.
+* Run `npm run build` to build your files from `/src` to `/dist` directory.
 
 ## Other repositories
 
