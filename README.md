@@ -1,4 +1,7 @@
 # React-Redux - To-Do list
+## Overview
+![Structure](assets/structure.png)
+
 ## How you view
 You should view step by step when you want to know more about React-Redux in this example:
 * Step 0 (`/src/index.js`): Data structures
