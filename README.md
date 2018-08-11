@@ -27,7 +27,7 @@ You can view more about Redux:
    * [Store](https://redux.js.org/api/store)
 
 ## Screenshot
-View on [Codesandbox](https://codesandbox.io/s/7m2nzolvv1)
+View on [Codesandbox](https://codesandbox.io/s/qlw4130lrj)
 
 ![Screenshot](assets/screenshot.png)
 
