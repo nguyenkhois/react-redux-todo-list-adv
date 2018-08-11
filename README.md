@@ -4,6 +4,7 @@ You should view step by step when you want to know more about React-Redux in thi
 * Step 0 (`/src/index.js`): Data structures
 * Step 1 (`/src/reducers/reducer.js`): Creating reducer
 * Step 2 (`/src/actions/todos.action.js`): Creating actions
+   * `/src/actions/extra.action.js` is extra action that used for `deleted-tasks.component`
 * Step 3 (`/src/components/todos.components.js`)
    * Step 3a: Creating React props by using mapDispatchToProps(). React component will dispatch these actions to change Redux state data
    * Step 3b: Creating React props by using mapStateToProps(). React component will use Redux state data
