@@ -41,6 +41,10 @@ const mapStateToProps = (state) => {
  * STEP 3C - Creating React class component with its props that were created on above steps
  */
 class TodoApp extends Component {
+    componentDidMount() {
+        this.textInput.focus();
+    }
+
     handleEnterKey = (e) => {
         const userInput = e.target.value.trim(); // Get data from text input
         if (e.keyCode === 13 && userInput.length > 0) {
@@ -85,7 +89,8 @@ class TodoApp extends Component {
                 {console.log('this.props.todos', this.props.todos)}
 
                 <p>To-Do list</p>
-                <input onKeyDown={(e) => this.handleEnterKey(e)}
+                <input ref={(input) => { this.textInput = input; }}
+                    onKeyDown={(e) => this.handleEnterKey(e)}
                     type="text" minLength="1" maxLength="50" placeholder="Enter your task" />
 
                 <TodoList items={todoTasks}
